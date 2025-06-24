@@ -1,16 +1,32 @@
+[workspace]
+members = [
+    "crates/network-service",
+    "crates/chat-module", 
+    "crates/timesync-module"
+]
+
 [package]
 name = "anemo-example"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-anemo = { git = "https://github.com/mystenlabs/anemo.git" }
+# 网络服务模块
+network-service = { path = "crates/network-service" }
+chat-module = { path = "crates/chat-module" }
+timesync-module = { path = "crates/timesync-module" }
+
+# 异步运行时
 tokio = { version = "1.28", features = ["full"] }
-anyhow = "1.0"
+
+# 日志
 tracing = "0.1"
 tracing-subscriber = "0.3"
-async-trait = "0.1"
+
+# 错误处理
+anyhow = "1.0"
+
+# 配置和命令行参数
+clap = { version = "4.0", features = ["derive"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-futures = "0.3"
-rand = "0.8"

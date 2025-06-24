@@ -1,0 +1,28 @@
+[package]
+name = "timesync-module"
+version = "0.1.0"
+edition = "2021"
+description = "授时业务模块，基于网络服务层实现时间同步功能"
+
+[dependencies]
+# 网络服务层
+network-service = { path = "../network-service" }
+
+# 异步
+tokio = { version = "1.28", features = ["full"] }
+async-trait = "0.1"
+
+# 序列化
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# 日志
+tracing = "0.1"
+
+# 错误处理
+anyhow = "1.0"
+thiserror = "1.0"
+
+# 工具
+uuid = { version = "1.0", features = ["v4"] }
+chrono = { version = "0.4", features = ["serde"] } 
